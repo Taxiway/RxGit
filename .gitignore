@@ -1,2 +1,8 @@
 xcuserdata
+Carthage
+Cartfile.resolved.cache
+*.xccheckout
+*.xcworkspacedata
+*.xcscmblueprint
+xcshareddata
 
