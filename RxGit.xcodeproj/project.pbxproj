@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3042C97021F4A5B4006EBF86 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042C96F21F4A5B4006EBF86 /* ServiceFactory.swift */; };
+		3042C97F21F4A681006EBF86 /* GitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042C97E21F4A681006EBF86 /* GitService.swift */; };
+		3042C98E21F4A9F5006EBF86 /* GitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042C98D21F4A9F5006EBF86 /* GitRequest.swift */; };
+		3042C99021F4B2AF006EBF86 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042C98F21F4B2AF006EBF86 /* RequestFactory.swift */; };
 		307DE19521EC90BF008595E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307DE19421EC90BF008595E6 /* AppDelegate.swift */; };
 		307DE19721EC90BF008595E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307DE19621EC90BF008595E6 /* ViewController.swift */; };
 		307DE19A21EC90BF008595E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307DE19821EC90BF008595E6 /* Main.storyboard */; };
@@ -34,6 +38,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3042C96F21F4A5B4006EBF86 /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
+		3042C97E21F4A681006EBF86 /* GitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitService.swift; sourceTree = "<group>"; };
+		3042C98D21F4A9F5006EBF86 /* GitRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRequest.swift; sourceTree = "<group>"; };
+		3042C98F21F4B2AF006EBF86 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		307DE19121EC90BF008595E6 /* RxGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		307DE19421EC90BF008595E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		307DE19621EC90BF008595E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +66,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3042C96E21F4A57A006EBF86 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3042C96F21F4A5B4006EBF86 /* ServiceFactory.swift */,
+				3042C97E21F4A681006EBF86 /* GitService.swift */,
+				3042C98F21F4B2AF006EBF86 /* RequestFactory.swift */,
+				3042C98D21F4A9F5006EBF86 /* GitRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3042C99121F4B31A006EBF86 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		307DE18821EC90BF008595E6 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +105,8 @@
 		307DE19321EC90BF008595E6 /* RxGit */ = {
 			isa = PBXGroup;
 			children = (
+				3042C99121F4B31A006EBF86 /* JSON */,
+				3042C96E21F4A57A006EBF86 /* Network */,
 				307DE19421EC90BF008595E6 /* AppDelegate.swift */,
 				307DE19621EC90BF008595E6 /* ViewController.swift */,
 				307DE19821EC90BF008595E6 /* Main.storyboard */,
@@ -161,8 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3042C99021F4B2AF006EBF86 /* RequestFactory.swift in Sources */,
+				3042C97F21F4A681006EBF86 /* GitService.swift in Sources */,
 				307DE19721EC90BF008595E6 /* ViewController.swift in Sources */,
+				3042C98E21F4A9F5006EBF86 /* GitRequest.swift in Sources */,
 				307DE19521EC90BF008595E6 /* AppDelegate.swift in Sources */,
+				3042C97021F4A5B4006EBF86 /* ServiceFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
