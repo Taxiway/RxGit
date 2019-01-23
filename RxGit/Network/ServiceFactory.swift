@@ -13,11 +13,11 @@ enum ServiceType {
 }
 
 protocol ServiceFactory {
-    func newService(_ type: ServiceType) -> GitService
+    func newLoginService(token: String, requestFactory: RequestFactory) -> LoginService
 }
 
 class ServiceFactoryImpl: ServiceFactory {
-    func newService(_ type: ServiceType) -> GitService {
-        return GitServiceImpl()
+    func newLoginService(token: String, requestFactory: RequestFactory) -> LoginService {
+        return LoginServiceImpl(token: token, requestFactory: requestFactory)
     }
 }
