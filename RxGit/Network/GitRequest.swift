@@ -11,37 +11,37 @@ import RxSwift
 import Alamofire
 
 protocol GitRequest {
-    func start() -> Single<String>
-    var queryJSON: [String : String] { get set }
+    func start() -> Single<Data>
+    var queryJSON: [String: String] { get set }
     var method: HTTPMethod { get set }
 }
 
 class GitRequestImpl: GitRequest {
-    var queryJSON = ["query" : "query{viewer{login}}"]
+    var queryJSON = [String: String]()
     var method: HTTPMethod = .post
     var baseURL: URL = URL(string: "https://api.github.com/graphql")!
+    var userTokenManager: UserTokenManager
 
-    func start() -> Single<String> {
-        // Use the following code to test the Git login API
-        /*
-        let headers: HTTPHeaders = [
-            "Authorization": "bearer " + "fcc386db559023962a0c291e9c74f529cf90804a",
-            ]
-        AF.request(self.baseURL, method: self.method, parameters: self.queryJSON, encoding: JSONEncoding.default, headers: headers)
-            .responseJSON(completionHandler: { response in
-                print(response)
-            })
-         */
-        return Single<String>.create(subscribe: { single in
+    func start() -> Single<Data> {
+        return Single<Data>.create(subscribe: { [unowned self] single in
+            let disposable = Disposables.create()
+            let token = self.userTokenManager.userToken
             let headers: HTTPHeaders = [
-                "Authorization": "bearer " + "fcc386db559023962a0c291e9c74f529cf90804a",
+                "Authorization": "bearer " + token,
                 ]
             AF.request(self.baseURL, method: self.method, parameters: self.queryJSON, encoding: JSONEncoding.default, headers: headers)
                 .responseJSON(completionHandler: { response in
-                    print(response)
-                    single(.success("a"))
+                    guard let data = response.data else {
+                        single(.error(NSError()))
+                        return
+                    }
+                    single(.success(data))
                 })
-            return Disposables.create()
+            return disposable
         })
+    }
+
+    init(userTokenManager: UserTokenManager) {
+        self.userTokenManager = userTokenManager
     }
 }

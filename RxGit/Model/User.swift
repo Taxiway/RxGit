@@ -18,11 +18,18 @@ class User: NSObject {
         super.init()
     }
 
-    convenience init?(json: String) {
-        if json == "" {
+    convenience init?(json: Data) {
+        do {
+            let parsedData = try JSONSerialization.jsonObject(with: json, options: .allowFragments)
+            var dict = parsedData as? Dictionary<String, Any>
+            dict = dict!["data"] as? Dictionary<String, Any>
+            dict = dict!["viewer"] as? Dictionary<String, Any>
+            let login = dict!["login"] as? String
+            print(login!)
+            self.init(name: login!, token: "b")
+        }
+        catch {
             return nil
-        } else {
-            self.init(name: "a", token: "b")
         }
     }
 }

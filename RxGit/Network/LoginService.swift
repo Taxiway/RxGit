@@ -19,8 +19,28 @@ class LoginServiceImpl: LoginService {
     var requestFactory: RequestFactory
     var request: GitRequest
     var bag: DisposeBag
+    var userTokenManager: UserTokenManager
 
-    func run( )-> Single<User> {
+    init(token: String, requestFactory: RequestFactory, userTokenManager: UserTokenManager) {
+        self.token = token
+        self.requestFactory = requestFactory
+        self.userTokenManager = userTokenManager
+        self.request = requestFactory.newRequest(.LoginRequest)
+        self.bag = DisposeBag()
+        setupRequest()
+        setupToken()
+    }
+
+    func setupRequest() {
+        self.request.method = .post
+        self.request.queryJSON = ["query": "query { viewer { login } }"]
+    }
+
+    func setupToken() {
+        self.userTokenManager.userToken = self.token
+    }
+
+    func run()-> Single<User> {
         return Single<User>.create(subscribe: { single in
             self.request.start()
                 .subscribe(onSuccess: { json in
@@ -35,12 +55,5 @@ class LoginServiceImpl: LoginService {
                 .disposed(by: self.bag)
             return Disposables.create()
         })
-    }
-
-    init(token: String, requestFactory: RequestFactory) {
-        self.token = token
-        self.requestFactory = requestFactory
-        self.request = requestFactory.newRequest(.LoginRequest)
-        self.bag = DisposeBag()
     }
 }
