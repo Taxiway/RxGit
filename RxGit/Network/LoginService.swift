@@ -15,7 +15,11 @@ protocol LoginService {
 }
 
 class LoginServiceImpl: LoginService {
-    var token: String
+    var token: String {
+        didSet {
+            setupToken()
+        }
+    }
     var requestFactory: RequestFactory
     var request: GitRequest?
     var bag: DisposeBag

@@ -20,21 +20,26 @@
 		307DE19A21EC90BF008595E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307DE19821EC90BF008595E6 /* Main.storyboard */; };
 		307DE19C21EC90C0008595E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 307DE19B21EC90C0008595E6 /* Assets.xcassets */; };
 		307DE19F21EC90C0008595E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307DE19D21EC90C0008595E6 /* LaunchScreen.storyboard */; };
-		309F068521EF795B00F53680 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068421EF795A00F53680 /* RxSwift.framework */; };
-		309F068621EF795B00F53680 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068421EF795A00F53680 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		309F068821EF797C00F53680 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068721EF797C00F53680 /* Alamofire.framework */; };
-		309F068921EF797C00F53680 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068721EF797C00F53680 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE56747C21FDD588008BDA4F /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE56747A21FDD588008BDA4F /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE56747F21FDD5C4008BDA4F /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068421EF795A00F53680 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE56748121FDD5C8008BDA4F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068721EF797C00F53680 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE94E10221F4B83A00251C9D /* RepositoryLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94E10121F4B83A00251C9D /* RepositoryLibraryViewController.swift */; };
+		DE94E10421F4BC9700251C9D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE94E10321F4BC9700251C9D /* Login.storyboard */; };
+		DE94E10621F4BC9700251C9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94E10521F4BC9700251C9D /* LoginViewController.swift */; };
+		DE94E10821F4BC9700251C9D /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94E10721F4BC9700251C9D /* AppController.swift */; };
+		DE94E10C21F4BC9700251C9D /* RepositoryLibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94E10B21F4BC9700251C9D /* RepositoryLibraryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		309F068021EF78A500F53680 /* Embed Frameworks */ = {
+		DE56747D21FDD588008BDA4F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				309F068621EF795B00F53680 /* RxSwift.framework in Embed Frameworks */,
-				309F068921EF797C00F53680 /* Alamofire.framework in Embed Frameworks */,
+				DE56747F21FDD5C4008BDA4F /* RxSwift.framework in Embed Frameworks */,
+				DE56748121FDD5C8008BDA4F /* Alamofire.framework in Embed Frameworks */,
+				DE56747C21FDD588008BDA4F /* RxCocoa.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +64,12 @@
 		307DE1A021EC90C0008595E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		309F068421EF795A00F53680 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		309F068721EF797C00F53680 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		DE56747A21FDD588008BDA4F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		DE94E10121F4B83A00251C9D /* RepositoryLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryLibraryViewController.swift; sourceTree = "<group>"; };
+		DE94E10321F4BC9700251C9D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		DE94E10521F4BC9700251C9D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DE94E10721F4BC9700251C9D /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		DE94E10B21F4BC9700251C9D /* RepositoryLibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryLibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				309F068521EF795B00F53680 /* RxSwift.framework in Frameworks */,
-				309F068821EF797C00F53680 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,10 +115,9 @@
 		307DE18821EC90BF008595E6 = {
 			isa = PBXGroup;
 			children = (
-				309F068721EF797C00F53680 /* Alamofire.framework */,
-				309F068421EF795A00F53680 /* RxSwift.framework */,
 				307DE19321EC90BF008595E6 /* RxGit */,
 				307DE19221EC90BF008595E6 /* Products */,
+				DE56747021FDD43C008BDA4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +132,7 @@
 		307DE19321EC90BF008595E6 /* RxGit */ = {
 			isa = PBXGroup;
 			children = (
+				DECCCCA621FE082F0052EFF3 /* View */,
 				3042C99421F8A69D006EBF86 /* Model */,
 				3042C99121F4B31A006EBF86 /* JSON */,
 				3042C96E21F4A57A006EBF86 /* Network */,
@@ -133,8 +142,30 @@
 				307DE19B21EC90C0008595E6 /* Assets.xcassets */,
 				307DE19D21EC90C0008595E6 /* LaunchScreen.storyboard */,
 				307DE1A021EC90C0008595E6 /* Info.plist */,
+				DE94E10721F4BC9700251C9D /* AppController.swift */,
 			);
 			path = RxGit;
+			sourceTree = "<group>";
+		};
+		DE56747021FDD43C008BDA4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE56747A21FDD588008BDA4F /* RxCocoa.framework */,
+				309F068721EF797C00F53680 /* Alamofire.framework */,
+				309F068421EF795A00F53680 /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DECCCCA621FE082F0052EFF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE94E10321F4BC9700251C9D /* Login.storyboard */,
+				DE94E10521F4BC9700251C9D /* LoginViewController.swift */,
+				DE94E10121F4B83A00251C9D /* RepositoryLibraryViewController.swift */,
+				DE94E10B21F4BC9700251C9D /* RepositoryLibraryCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,7 +178,7 @@
 				307DE18D21EC90BF008595E6 /* Sources */,
 				307DE18E21EC90BF008595E6 /* Frameworks */,
 				307DE18F21EC90BF008595E6 /* Resources */,
-				309F068021EF78A500F53680 /* Embed Frameworks */,
+				DE56747D21FDD588008BDA4F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE94E10421F4BC9700251C9D /* Login.storyboard in Resources */,
 				307DE19F21EC90C0008595E6 /* LaunchScreen.storyboard in Resources */,
 				307DE19C21EC90C0008595E6 /* Assets.xcassets in Resources */,
 				307DE19A21EC90BF008595E6 /* Main.storyboard in Resources */,
@@ -214,6 +246,11 @@
 				307DE19721EC90BF008595E6 /* ViewController.swift in Sources */,
 				3002318921FD302A00E76956 /* JSONParser.swift in Sources */,
 				3042C98E21F4A9F5006EBF86 /* GitRequest.swift in Sources */,
+				DE94E10621F4BC9700251C9D /* LoginViewController.swift in Sources */,
+				DE94E10821F4BC9700251C9D /* AppController.swift in Sources */,
+				307DE19721EC90BF008595E6 /* ViewController.swift in Sources */,
+				DE94E10221F4B83A00251C9D /* RepositoryLibraryViewController.swift in Sources */,
+				DE94E10C21F4BC9700251C9D /* RepositoryLibraryCollectionViewCell.swift in Sources */,
 				307DE19521EC90BF008595E6 /* AppDelegate.swift in Sources */,
 				30459F4B21FB0EE000DB5E18 /* UserTokenManager.swift in Sources */,
 				3042C97021F4A5B4006EBF86 /* ServiceFactory.swift in Sources */,
