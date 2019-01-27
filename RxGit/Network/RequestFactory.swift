@@ -13,17 +13,16 @@ enum RequestType {
 }
 
 protocol RequestFactory {
-    var userTokenManager: UserTokenManager { get set }
-    func newRequest(_ type: RequestType) -> GitRequest
+    var userTokenManager: UserTokenManager? { get set }
+    func newRequest(_ type: RequestType) -> GitRequest?
 }
 
 class RequestFactoryImpl: RequestFactory {
-    var userTokenManager: UserTokenManager
-    func newRequest(_ type: RequestType) -> GitRequest {
-        return GitRequestImpl(userTokenManager: self.userTokenManager)
-    }
+    static let sharedInstance = RequestFactoryImpl()
+    var userTokenManager: UserTokenManager?
 
-    init(userTokenManager: UserTokenManager) {
-        self.userTokenManager = userTokenManager
+    func newRequest(_ type: RequestType) -> GitRequest? {
+        guard let manager = self.userTokenManager else { return nil }
+        return GitRequestImpl(userTokenManager: manager)
     }
 }

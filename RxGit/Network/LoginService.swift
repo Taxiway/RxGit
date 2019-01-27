@@ -17,7 +17,7 @@ protocol LoginService {
 class LoginServiceImpl: LoginService {
     var token: String
     var requestFactory: RequestFactory
-    var request: GitRequest
+    var request: GitRequest?
     var bag: DisposeBag
     var userTokenManager: UserTokenManager
 
@@ -32,8 +32,8 @@ class LoginServiceImpl: LoginService {
     }
 
     func setupRequest() {
-        self.request.method = .post
-        self.request.queryJSON = ["query": "query { viewer { login } }"]
+        self.request?.method = .post
+        self.request?.queryJSON = ["query": "query { viewer { login } }"]
     }
 
     func setupToken() {
@@ -42,7 +42,12 @@ class LoginServiceImpl: LoginService {
 
     func run()-> Single<User> {
         return Single<User>.create(subscribe: { single in
-            self.request.start()
+            let disposable = Disposables.create()
+            guard let request = self.request else {
+                single(.error(NSError()))
+                return disposable
+            }
+            request.start()
                 .subscribe(onSuccess: { json in
                     guard let user = User.init(json: json) else {
                         single(.error(NSError()))
@@ -53,7 +58,7 @@ class LoginServiceImpl: LoginService {
                     single(.error(error))
                 })
                 .disposed(by: self.bag)
-            return Disposables.create()
+            return disposable
         })
     }
 }

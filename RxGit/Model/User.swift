@@ -9,6 +9,7 @@
 import UIKit
 
 class User: NSObject {
+    static let jsonPathName = ["data", "viewer", "login"]
     var name: String
     var token: String
 
@@ -21,12 +22,10 @@ class User: NSObject {
     convenience init?(json: Data) {
         do {
             let parsedData = try JSONSerialization.jsonObject(with: json, options: .allowFragments)
-            var dict = parsedData as? Dictionary<String, Any>
-            dict = dict!["data"] as? Dictionary<String, Any>
-            dict = dict!["viewer"] as? Dictionary<String, Any>
-            let login = dict!["login"] as? String
-            print(login!)
-            self.init(name: login!, token: "b")
+            guard let dict = parsedData as? Dictionary<String, Any> else { return nil }
+            guard let login = JSONParser.sharedInstance.parseString(json: dict, path: User.jsonPathName) else { return nil }
+            print(login)
+            self.init(name: login, token: "b")
         }
         catch {
             return nil

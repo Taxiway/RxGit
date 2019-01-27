@@ -17,6 +17,8 @@ protocol ServiceFactory {
 }
 
 class ServiceFactoryImpl: ServiceFactory {
+    static let sharedInstance = ServiceFactoryImpl()
+
     func newLoginService(token: String, requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> LoginService {
         return LoginServiceImpl(token: token, requestFactory: requestFactory, userTokenManager: userTokenManager)
     }
