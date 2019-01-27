@@ -20,13 +20,13 @@ class ViewController: UIViewController {
         let userTokenManager = UserTokenManagerImpl()
         let requestFactory = RequestFactoryImpl()
         requestFactory.userTokenManager = userTokenManager
-        let token = "17c6ca673e2b54ede099ba77295aaeddceefb755"
+        let token = "86e4a47936b68ddb50783dca5395e0f1c2a136f8"
 
         loginService = serviceFactory.newLoginService(token: token, requestFactory: requestFactory, userTokenManager: userTokenManager)
         
         loginService?.run()
             .subscribe(onSuccess: { user in
-                print(user.name)
+                print(user)
             }, onError: { error in
                 print("Error")
             })

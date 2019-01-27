@@ -8,10 +8,6 @@
 
 import UIKit
 
-enum ServiceType {
-    case LoginService
-}
-
 protocol ServiceFactory {
     func newLoginService(token: String, requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> LoginService
 }

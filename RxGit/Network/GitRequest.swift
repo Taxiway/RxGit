@@ -21,15 +21,16 @@ class GitRequestImpl: GitRequest {
     var method: HTTPMethod = .post
     var baseURL: URL = URL(string: "https://api.github.com/graphql")!
     var userTokenManager: UserTokenManager
+    var headers: HTTPHeaders {
+        get {
+            return ["Authorization": "bearer " + self.userTokenManager.userToken]
+        }
+    }
 
     func start() -> Single<Data> {
         return Single<Data>.create(subscribe: { [unowned self] single in
             let disposable = Disposables.create()
-            let token = self.userTokenManager.userToken
-            let headers: HTTPHeaders = [
-                "Authorization": "bearer " + token,
-                ]
-            AF.request(self.baseURL, method: self.method, parameters: self.queryJSON, encoding: JSONEncoding.default, headers: headers)
+            AF.request(self.baseURL, method: self.method, parameters: self.queryJSON, encoding: JSONEncoding.default, headers: self.headers)
                 .responseJSON(completionHandler: { response in
                     guard let data = response.data else {
                         single(.error(NSError()))

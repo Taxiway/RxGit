@@ -33,7 +33,7 @@ class LoginServiceImpl: LoginService {
 
     func setupRequest() {
         self.request?.method = .post
-        self.request?.queryJSON = ["query": "query { viewer { login } }"]
+        self.request?.queryJSON = ["query": JSONQueries.Login.rawValue]
     }
 
     func setupToken() {
@@ -53,6 +53,7 @@ class LoginServiceImpl: LoginService {
                         single(.error(NSError()))
                         return
                     }
+                    user.token = self.token
                     single(.success(user))
                 }, onError: { error in
                     single(.error(error))

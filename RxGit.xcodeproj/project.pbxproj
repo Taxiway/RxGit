@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3002318921FD302A00E76956 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3002318821FD302A00E76956 /* JSONParser.swift */; };
+		3002319821FD76C400E76956 /* JSONQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3002319721FD76C400E76956 /* JSONQueries.swift */; };
 		3042C97021F4A5B4006EBF86 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042C96F21F4A5B4006EBF86 /* ServiceFactory.swift */; };
 		3042C98E21F4A9F5006EBF86 /* GitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042C98D21F4A9F5006EBF86 /* GitRequest.swift */; };
 		3042C99021F4B2AF006EBF86 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042C98F21F4B2AF006EBF86 /* RequestFactory.swift */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		3002318821FD302A00E76956 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		3002319721FD76C400E76956 /* JSONQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONQueries.swift; sourceTree = "<group>"; };
 		3042C96F21F4A5B4006EBF86 /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		3042C98D21F4A9F5006EBF86 /* GitRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRequest.swift; sourceTree = "<group>"; };
 		3042C98F21F4B2AF006EBF86 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				3002318821FD302A00E76956 /* JSONParser.swift */,
+				3002319721FD76C400E76956 /* JSONQueries.swift */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3002319821FD76C400E76956 /* JSONQueries.swift in Sources */,
 				3042C99021F4B2AF006EBF86 /* RequestFactory.swift in Sources */,
 				307DE19721EC90BF008595E6 /* ViewController.swift in Sources */,
 				3002318921FD302A00E76956 /* JSONParser.swift in Sources */,
