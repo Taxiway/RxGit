@@ -15,6 +15,7 @@
 		3042C99321F8A65F006EBF86 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042C99221F8A65F006EBF86 /* LoginService.swift */; };
 		3042C99621F8A72E006EBF86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3042C99521F8A72E006EBF86 /* User.swift */; };
 		30459F4B21FB0EE000DB5E18 /* UserTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F4A21FB0EE000DB5E18 /* UserTokenManager.swift */; };
+		304980FE2202EF29007AE4EF /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 304980FC2202EF29007AE4EF /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		307DE19521EC90BF008595E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307DE19421EC90BF008595E6 /* AppDelegate.swift */; };
 		307DE19721EC90BF008595E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307DE19621EC90BF008595E6 /* ViewController.swift */; };
 		307DE19A21EC90BF008595E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307DE19821EC90BF008595E6 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 			files = (
 				DE56747F21FDD5C4008BDA4F /* RxSwift.framework in Embed Frameworks */,
 				DE56748121FDD5C8008BDA4F /* Alamofire.framework in Embed Frameworks */,
+				304980FE2202EF29007AE4EF /* ObjectMapper.framework in Embed Frameworks */,
 				DE56747C21FDD588008BDA4F /* RxCocoa.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -55,6 +57,7 @@
 		3042C99221F8A65F006EBF86 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		3042C99521F8A72E006EBF86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		30459F4A21FB0EE000DB5E18 /* UserTokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTokenManager.swift; sourceTree = "<group>"; };
+		304980FC2202EF29007AE4EF /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		307DE19121EC90BF008595E6 /* RxGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		307DE19421EC90BF008595E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		307DE19621EC90BF008595E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +153,7 @@
 		DE56747021FDD43C008BDA4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				304980FC2202EF29007AE4EF /* ObjectMapper.framework */,
 				DE56747A21FDD588008BDA4F /* RxCocoa.framework */,
 				309F068721EF797C00F53680 /* Alamofire.framework */,
 				309F068421EF795A00F53680 /* RxSwift.framework */,

@@ -7,37 +7,29 @@
 //
 
 import UIKit
+import ObjectMapper
 
-class User: NSObject {
+class User: Mappable {
     static let jsonPathName = ["data", "viewer", "login"]
-    var name: String
-    var token: String
-
-    convenience init(name: String) {
-        self.init(name: name, token: "")
-    }
-
-    init(name: String, token: String) {
-        self.name = name
-        self.token = token
-        super.init()
-    }
+    var name: String!
+    var token: String!
 
     convenience init?(json: Data) {
-        do {
-            let parsedData = try JSONSerialization.jsonObject(with: json, options: .allowFragments)
-            guard let dict = parsedData as? Dictionary<String, Any> else { return nil }
-            guard let login = JSONParser.sharedInstance.parseString(json: dict, path: User.jsonPathName) else { return nil }
-            self.init(name: login)
-        }
-        catch {
-            return nil
+        guard let jsonString = String(data: json, encoding: .utf8) else { return nil }
+        self.init(JSONString: jsonString)
+    }
+
+    var description: String {
+        get {
+            return "User name: \(String(describing: self.name)), token: \(String(describing: self.token))"
         }
     }
 
-    override var description: String {
-        get {
-            return "User name: \(self.name), token: \(self.token)"
-        }
+    required init?(map: Map) {
+
+    }
+    
+    func mapping(map: Map) {
+        name <- map["data.viewer.login"]
     }
 }
