@@ -10,7 +10,6 @@ import UIKit
 import ObjectMapper
 
 class User: Mappable {
-    static let jsonPathName = ["data", "viewer", "login"]
     var name: String!
     var token: String!
 
