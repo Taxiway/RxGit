@@ -10,4 +10,5 @@ import UIKit
 
 enum JSONQueries: String {
     case Login = "query { viewer { login } }"
+    case Repositories = "query { viewer { repositories(last: 100) { nodes { name description } } } }"
 }

@@ -1,51 +1,39 @@
 //
-//  LoginService.swift
+//  RepositoriesService.swift
 //  RxGit
 //
-//  Created by Hang on 1/23/19.
+//  Created by Hang on 2/15/19.
 //  Copyright © 2019 RxGit. All rights reserved.
 //
 
 import UIKit
 import RxSwift
 
-protocol LoginService {
-    var token: String { get set }
-    func run() -> Single<User>
+protocol RepositoriesService {
+    func run() -> Single<Repositories>
 }
 
-class LoginServiceImpl: LoginService {
-    var token: String {
-        didSet {
-            setupToken()
-        }
-    }
+class RepositoriesServiceImpl: RepositoriesService {
     var requestFactory: RequestFactory
     var request: GitRequest?
     var bag: DisposeBag
     var userTokenManager: UserTokenManager
-
-    init(token: String, requestFactory: RequestFactory, userTokenManager: UserTokenManager) {
-        self.token = token
+    
+    init(requestFactory: RequestFactory, userTokenManager: UserTokenManager) {
         self.requestFactory = requestFactory
         self.userTokenManager = userTokenManager
         self.request = requestFactory.newRequest()
         self.bag = DisposeBag()
         setupRequest()
-        setupToken()
     }
 
     func setupRequest() {
         self.request?.method = .post
-        self.request?.queryJSON = ["query": JSONQueries.Login.rawValue]
+        self.request?.queryJSON = ["query": JSONQueries.Repositories.rawValue]
     }
 
-    func setupToken() {
-        self.userTokenManager.userToken = self.token
-    }
-
-    func run()-> Single<User> {
-        return Single<User>.create(subscribe: { single in
+    func run() -> Single<Repositories> {
+        return Single<Repositories>.create(subscribe: { single in
             let disposable = Disposables.create()
             guard let request = self.request else {
                 single(.error(NSError()))
@@ -53,12 +41,11 @@ class LoginServiceImpl: LoginService {
             }
             request.start()
                 .subscribe(onSuccess: { json in
-                    guard let user = User.init(json: json), user.name != nil else {
+                    guard let repositories = Repositories.init(json: json) else {
                         single(.error(NSError()))
                         return
                     }
-                    user.token = self.token
-                    single(.success(user))
+                    single(.success(repositories))
                 }, onError: { error in
                     single(.error(error))
                 })

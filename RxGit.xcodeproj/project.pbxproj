@@ -17,10 +17,12 @@
 		30459F4B21FB0EE000DB5E18 /* UserTokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30459F4A21FB0EE000DB5E18 /* UserTokenManager.swift */; };
 		304980FE2202EF29007AE4EF /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 304980FC2202EF29007AE4EF /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		307DE19521EC90BF008595E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307DE19421EC90BF008595E6 /* AppDelegate.swift */; };
-		307DE19721EC90BF008595E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307DE19621EC90BF008595E6 /* ViewController.swift */; };
 		307DE19A21EC90BF008595E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307DE19821EC90BF008595E6 /* Main.storyboard */; };
 		307DE19C21EC90C0008595E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 307DE19B21EC90C0008595E6 /* Assets.xcassets */; };
 		307DE19F21EC90C0008595E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307DE19D21EC90C0008595E6 /* LaunchScreen.storyboard */; };
+		30CD2D802216B7A800B4B1A8 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CD2D7F2216B7A800B4B1A8 /* Repositories.swift */; };
+		30CD2D822216B7CC00B4B1A8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CD2D812216B7CC00B4B1A8 /* Repository.swift */; };
+		30CD2D842216B8D500B4B1A8 /* RepositoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CD2D832216B8D500B4B1A8 /* RepositoriesService.swift */; };
 		DE56747C21FDD588008BDA4F /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE56747A21FDD588008BDA4F /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE56747F21FDD5C4008BDA4F /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068421EF795A00F53680 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE56748121FDD5C8008BDA4F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068721EF797C00F53680 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -60,13 +62,15 @@
 		304980FC2202EF29007AE4EF /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		307DE19121EC90BF008595E6 /* RxGit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxGit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		307DE19421EC90BF008595E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		307DE19621EC90BF008595E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		307DE19921EC90BF008595E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		307DE19B21EC90C0008595E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		307DE19E21EC90C0008595E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		307DE1A021EC90C0008595E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		309F068421EF795A00F53680 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		309F068721EF797C00F53680 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		30CD2D7F2216B7A800B4B1A8 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
+		30CD2D812216B7CC00B4B1A8 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		30CD2D832216B8D500B4B1A8 /* RepositoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesService.swift; sourceTree = "<group>"; };
 		DE56747A21FDD588008BDA4F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		DE94E10121F4B83A00251C9D /* RepositoryLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryLibraryViewController.swift; sourceTree = "<group>"; };
 		DE94E10321F4BC9700251C9D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -91,6 +95,7 @@
 			children = (
 				3042C96F21F4A5B4006EBF86 /* ServiceFactory.swift */,
 				3042C99221F8A65F006EBF86 /* LoginService.swift */,
+				30CD2D832216B8D500B4B1A8 /* RepositoriesService.swift */,
 				3042C98F21F4B2AF006EBF86 /* RequestFactory.swift */,
 				3042C98D21F4A9F5006EBF86 /* GitRequest.swift */,
 				30459F4A21FB0EE000DB5E18 /* UserTokenManager.swift */,
@@ -111,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				3042C99521F8A72E006EBF86 /* User.swift */,
+				30CD2D7F2216B7A800B4B1A8 /* Repositories.swift */,
+				30CD2D812216B7CC00B4B1A8 /* Repository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,7 +147,6 @@
 				3042C99121F4B31A006EBF86 /* JSON */,
 				3042C96E21F4A57A006EBF86 /* Network */,
 				307DE19421EC90BF008595E6 /* AppDelegate.swift */,
-				307DE19621EC90BF008595E6 /* ViewController.swift */,
 				307DE19821EC90BF008595E6 /* Main.storyboard */,
 				307DE19B21EC90C0008595E6 /* Assets.xcassets */,
 				307DE19D21EC90C0008595E6 /* LaunchScreen.storyboard */,
@@ -246,16 +252,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3002319821FD76C400E76956 /* JSONQueries.swift in Sources */,
+				30CD2D842216B8D500B4B1A8 /* RepositoriesService.swift in Sources */,
 				3042C99021F4B2AF006EBF86 /* RequestFactory.swift in Sources */,
-				307DE19721EC90BF008595E6 /* ViewController.swift in Sources */,
 				3002318921FD302A00E76956 /* JSONParser.swift in Sources */,
 				3042C98E21F4A9F5006EBF86 /* GitRequest.swift in Sources */,
+				30CD2D802216B7A800B4B1A8 /* Repositories.swift in Sources */,
 				DE94E10621F4BC9700251C9D /* LoginViewController.swift in Sources */,
 				DE94E10821F4BC9700251C9D /* AppController.swift in Sources */,
-				307DE19721EC90BF008595E6 /* ViewController.swift in Sources */,
 				DE94E10221F4B83A00251C9D /* RepositoryLibraryViewController.swift in Sources */,
 				DE94E10C21F4BC9700251C9D /* RepositoryLibraryCollectionViewCell.swift in Sources */,
 				307DE19521EC90BF008595E6 /* AppDelegate.swift in Sources */,
+				30CD2D822216B7CC00B4B1A8 /* Repository.swift in Sources */,
 				30459F4B21FB0EE000DB5E18 /* UserTokenManager.swift in Sources */,
 				3042C97021F4A5B4006EBF86 /* ServiceFactory.swift in Sources */,
 				3042C99321F8A65F006EBF86 /* LoginService.swift in Sources */,

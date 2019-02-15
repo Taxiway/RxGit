@@ -8,20 +8,16 @@
 
 import UIKit
 
-enum RequestType {
-    case LoginRequest
-}
-
 protocol RequestFactory {
     var userTokenManager: UserTokenManager? { get set }
-    func newRequest(_ type: RequestType) -> GitRequest?
+    func newRequest() -> GitRequest?
 }
 
 class RequestFactoryImpl: RequestFactory {
     static let sharedInstance = RequestFactoryImpl()
     var userTokenManager: UserTokenManager?
 
-    func newRequest(_ type: RequestType) -> GitRequest? {
+    func newRequest() -> GitRequest? {
         guard let manager = self.userTokenManager else { return nil }
         return GitRequestImpl(userTokenManager: manager)
     }

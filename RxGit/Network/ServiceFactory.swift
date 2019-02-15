@@ -10,6 +10,7 @@ import UIKit
 
 protocol ServiceFactory {
     func newLoginService(token: String, requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> LoginService
+    func newRepositoriesService(requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> RepositoriesService
 }
 
 class ServiceFactoryImpl: ServiceFactory {
@@ -17,5 +18,9 @@ class ServiceFactoryImpl: ServiceFactory {
 
     func newLoginService(token: String, requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> LoginService {
         return LoginServiceImpl(token: token, requestFactory: requestFactory, userTokenManager: userTokenManager)
+    }
+
+    func newRepositoriesService(requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> RepositoriesService {
+        return RepositoriesServiceImpl(requestFactory: requestFactory, userTokenManager: userTokenManager)
     }
 }
