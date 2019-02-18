@@ -23,41 +23,56 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oTR-KX-Itf">
-                                    <size key="itemSize" width="343" height="38"/>
+                                    <size key="itemSize" width="362" height="74"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RepositoryLibraryCollectionViewCell" id="6vO-N1-8r3" customClass="RepositoryLibraryCollectionViewCell" customModule="RxGit" customModuleProvider="target">
-                                        <rect key="frame" x="17.5" y="0.0" width="343" height="38"/>
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RepositoryLibraryCollectionViewCell" id="6vO-N1-8r3" customClass="RepositoryLibraryCollectionViewCell" customModule="RxGit" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="0.0" width="362" height="74"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="38"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Utq-HK-Sf1">
-                                                    <rect key="frame" x="0.0" y="35" width="343" height="2"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
-                                                </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="repo" translatesAutoresizingMaskIntoConstraints="NO" id="ta1-F3-3vn">
-                                                    <rect key="frame" x="10" y="6" width="17" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXH-rp-NrM">
-                                                    <rect key="frame" x="36" y="0.0" width="271" height="33"/>
+                                                    <rect key="frame" x="35" y="0.0" width="269" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebw-LA-RmM">
+                                                    <rect key="frame" x="6" y="36" width="337" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.54148822841305422" green="0.54148822841305422" blue="0.54148822841305422" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="repo" translatesAutoresizingMaskIntoConstraints="NO" id="ta1-F3-3vn">
+                                                    <rect key="frame" x="10" y="10" width="17" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Utq-HK-Sf1">
+                                                    <rect key="frame" x="7" y="72" width="349" height="2"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="Label" destination="iXH-rp-NrM" id="oJw-zS-rJd"/>
-                                            <segue destination="abE-Nb-Ljc" kind="show" id="zNa-To-492"/>
+                                            <outlet property="descriptionLabel" destination="Ebw-LA-RmM" id="4LC-Gl-Mgc"/>
+                                            <outlet property="nameLabel" destination="iXH-rp-NrM" id="pcu-uC-hK3"/>
+                                            <segue destination="abE-Nb-Ljc" kind="show" identifier="viewRepository" id="zNa-To-492"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -71,15 +86,18 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Repository" id="s2Z-HT-Aef"/>
                     <navigationItem key="navigationItem" id="Ol1-30-hRE"/>
+                    <connections>
+                        <outlet property="collectionView" destination="pCj-W1-kew" id="R1b-sv-Tj0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYo-vO-dmu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-709" y="-1961"/>
+            <point key="canvasLocation" x="-710.14492753623199" y="-1961.3839285714284"/>
         </scene>
-        <!--View Controller-->
+        <!--Repository View Controller-->
         <scene sceneID="Mbz-ol-C8J">
             <objects>
-                <viewController id="abE-Nb-Ljc" sceneMemberID="viewController">
+                <viewController id="abE-Nb-Ljc" customClass="RepositoryViewController" customModule="RxGit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a02-Y4-qnW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

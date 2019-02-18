@@ -11,10 +11,13 @@ import RxSwift
 import RxCocoa
 
 class LoginViewController: UIViewController {
-    private weak var appController : AppController?
-    let serviceFactory = ServiceFactoryImpl()
+    private weak var appController : AppController!
+    let serviceFactory = ServiceFactoryImpl.sharedInstance
+    let requestFactory = RequestFactoryImpl.sharedInstance
     let userTokenManager = UserTokenManagerImpl()
-    let requestFactory = RequestFactoryImpl()
+    var bag = DisposeBag()
+    var loginService: LoginService!
+    var state : Variable<State> = Variable(.standby)
     
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var tokenButton: UIButton!
@@ -27,11 +30,7 @@ class LoginViewController: UIViewController {
         case fetching
     }
     
-    var bag = DisposeBag()
-    var loginService: LoginService?
-    var state : Variable<State> = Variable(.standby)
-    
-    static func make(_ appController : AppController?) -> LoginViewController? {
+    static func make(_ appController : AppController!) -> LoginViewController? {
         let controller = UIStoryboard(
             name: "Login",
             bundle: Bundle(for: AppDelegate.self))
@@ -69,19 +68,16 @@ class LoginViewController: UIViewController {
         alert.addTextField { (textField) in
             textField.placeholder = "Personal Access Token"
         }
-        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { [weak alert, unowned self] _ in
             alert?.actions.forEach { $0.isEnabled = false }
-//            let token = "12b40a027f9553a19d5e170029d1cf5fbd05eef2"
             let token = alert?.textFields?.first?.text ?? ""
-            self.loginService?.token = token
-            self.loginService?.run()
+            self.loginService.token = token
+            self.loginService.run()
                 .subscribe(onSuccess: { [unowned self] user in
                         print(user)
                         self.state.value = .standby
-                        self.appController?.didLoginWith(user: user)
-                        self.appController?.enterLibrary()
+                        self.appController.didLoginWith(user: user)
                     }, onError: { error in
                         print("Error")
                         self.state.value = .standby
@@ -90,6 +86,7 @@ class LoginViewController: UIViewController {
                 .disposed(by: self.bag)
             self.state.value = .fetching
         }))
+        
         present(alert, animated: !UIAccessibility.isReduceMotionEnabled)
     }
     
@@ -98,14 +95,5 @@ class LoginViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: !UIAccessibility.isReduceMotionEnabled)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

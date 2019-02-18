@@ -28,14 +28,18 @@ class AppController: NSObject, UITabBarControllerDelegate {
         appController.present(controller, animated: false)
     }
     
-    func enterLibrary() {
+    func didLoginWith(user: User) {
+        userInfo = user
         if let presented = appController.presentedViewController, presented is LoginViewController {
             presented.dismiss(animated: false, completion: nil)
         }
+        enterLibrary()
     }
     
-    func didLoginWith(user: User) {
-        userInfo = user
+    func enterLibrary() {
+        guard let navigationController = appController.viewControllers?[0] as? UINavigationController else { return }
+        let libraryController = navigationController.topViewController as? RepositoryLibraryViewController
+        libraryController?.reset(userInfo)
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

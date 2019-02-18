@@ -10,6 +10,7 @@ import UIKit
 
 class RepositoryLibraryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var Label: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
 }

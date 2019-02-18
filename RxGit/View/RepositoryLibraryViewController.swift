@@ -7,21 +7,50 @@
 //
 
 import UIKit
+import RxSwift
 
 class RepositoryLibraryViewController: UIViewController, UICollectionViewDataSource {
+    private weak var appController : AppController!
+    let serviceFactory = ServiceFactoryImpl.sharedInstance
+    let requestFactory = RequestFactoryImpl.sharedInstance
+    var repositoryService: RepositoriesService!
+    private var repositories: Repositories?
+    private var user : User?
+    var bag = DisposeBag()
     
-    private let dataLabel = ["repo1", "repo2", "repo3", "repo4", "repo5"]
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    
+    func reset(_ user: User?) {
+        collectionView.isPrefetchingEnabled = true
+        repositoryService = serviceFactory.newRepositoriesService(requestFactory: requestFactory, userTokenManager: requestFactory.userTokenManager!)
+        repositoryService.run()
+            .subscribe(onSuccess: { [unowned self] repositories in
+                print(repositories)
+                self.repositories = repositories
+                self.collectionView.reloadData()
+                }, onError: { error in
+                    print("Error")
+            })
+            .disposed(by: self.bag)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return repositories?.repositories.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RepositoryLibraryCollectionViewCell", for: indexPath) as! RepositoryLibraryCollectionViewCell
-        cell.Label.text = dataLabel[indexPath.item]
+        cell.nameLabel.text = repositories?.repositories[indexPath.item].name
+        cell.descriptionLabel.text = repositories?.repositories[indexPath.item].description
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewRepository" {
+            let cell = sender as! RepositoryLibraryCollectionViewCell
+            let repositoryVC = segue.destination
+            repositoryVC.navigationItem.title = cell.nameLabel.text
+        }
     }
     
     
@@ -32,16 +61,5 @@ class RepositoryLibraryViewController: UIViewController, UICollectionViewDataSou
         // Do any additional setup after loading the view.
         navigationItem.titleView = searchBar
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

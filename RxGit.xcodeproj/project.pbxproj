@@ -26,6 +26,7 @@
 		DE56747C21FDD588008BDA4F /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE56747A21FDD588008BDA4F /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE56747F21FDD5C4008BDA4F /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068421EF795A00F53680 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE56748121FDD5C8008BDA4F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068721EF797C00F53680 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DE90678E2219C56600CC068B /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE90678D2219C56600CC068B /* RepositoryViewController.swift */; };
 		DE94E10221F4B83A00251C9D /* RepositoryLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94E10121F4B83A00251C9D /* RepositoryLibraryViewController.swift */; };
 		DE94E10421F4BC9700251C9D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE94E10321F4BC9700251C9D /* Login.storyboard */; };
 		DE94E10621F4BC9700251C9D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE94E10521F4BC9700251C9D /* LoginViewController.swift */; };
@@ -72,6 +73,7 @@
 		30CD2D812216B7CC00B4B1A8 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		30CD2D832216B8D500B4B1A8 /* RepositoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesService.swift; sourceTree = "<group>"; };
 		DE56747A21FDD588008BDA4F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		DE90678D2219C56600CC068B /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		DE94E10121F4B83A00251C9D /* RepositoryLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryLibraryViewController.swift; sourceTree = "<group>"; };
 		DE94E10321F4BC9700251C9D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		DE94E10521F4BC9700251C9D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				DE94E10521F4BC9700251C9D /* LoginViewController.swift */,
 				DE94E10121F4B83A00251C9D /* RepositoryLibraryViewController.swift */,
 				DE94E10B21F4BC9700251C9D /* RepositoryLibraryCollectionViewCell.swift */,
+				DE90678D2219C56600CC068B /* RepositoryViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				3042C97021F4A5B4006EBF86 /* ServiceFactory.swift in Sources */,
 				3042C99321F8A65F006EBF86 /* LoginService.swift in Sources */,
 				3042C99621F8A72E006EBF86 /* User.swift in Sources */,
+				DE90678E2219C56600CC068B /* RepositoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
