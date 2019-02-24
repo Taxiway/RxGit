@@ -12,6 +12,7 @@ import ObjectMapper
 class Repository: Mappable {
     var name: String!
     var description: String!
+    var nameWithOwner: String!
 
     required init?(map: Map) {
         
@@ -19,6 +20,7 @@ class Repository: Mappable {
     
     func mapping(map: Map) {
         name <- map["name"]
+        nameWithOwner <- map["nameWithOwner"]
         description <- map["description"]
     }
 }

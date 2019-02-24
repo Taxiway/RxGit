@@ -46,7 +46,7 @@ class RepositoryLibraryViewController: UIViewController, UICollectionViewDataSou
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "viewRepository" {
+        if segue.identifier == "viewRepository1" {
             let cell = sender as! RepositoryLibraryCollectionViewCell
             let repositoryVC = segue.destination
             repositoryVC.navigationItem.title = cell.nameLabel.text
