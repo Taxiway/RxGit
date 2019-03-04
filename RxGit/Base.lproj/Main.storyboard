@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pCj-W1-kew">
-                                <rect key="frame" x="16" y="111" width="378" height="635"/>
+                                <rect key="frame" x="16" y="111" width="378" height="682"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oTR-KX-Itf">
@@ -72,19 +72,16 @@
                                         <connections>
                                             <outlet property="descriptionLabel" destination="Ebw-LA-RmM" id="4LC-Gl-Mgc"/>
                                             <outlet property="nameLabel" destination="iXH-rp-NrM" id="pcu-uC-hK3"/>
-                                            <segue destination="abE-Nb-Ljc" kind="show" identifier="viewRepository" id="zNa-To-492"/>
+                                            <segue destination="abE-Nb-Ljc" kind="show" identifier="viewRepository1" id="zNa-To-492"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="Qrt-yh-gNm" id="ndu-Vj-Vt8"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="meT-Pg-hZx"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Repository" id="s2Z-HT-Aef"/>
+                    <tabBarItem key="tabBarItem" title="Repository" image="file-directory" id="s2Z-HT-Aef"/>
                     <navigationItem key="navigationItem" id="Ol1-30-hRE"/>
                     <connections>
                         <outlet property="collectionView" destination="pCj-W1-kew" id="R1b-sv-Tj0"/>
@@ -92,7 +89,103 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DYo-vO-dmu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-710.14492753623199" y="-1961.3839285714284"/>
+            <point key="canvasLocation" x="-757.97101449275374" y="-2292.1875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yO7-Th-1N1">
+            <objects>
+                <navigationController id="uK6-Uy-G8L" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="Te0-2b-gjI"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3YU-Ni-Cc7">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9o8-if-YcP" kind="relationship" relationship="rootViewController" id="o01-T5-ER9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8g3-Th-ip9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1614" y="-1585"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="pP9-BZ-vLL">
+            <objects>
+                <viewController id="9o8-if-YcP" customClass="SearchViewController" customModule="RxGit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m4K-Ow-Lev">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sDf-w6-Xg2">
+                                <rect key="frame" x="16" y="111" width="378" height="682"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ExG-S7-K94">
+                                    <size key="itemSize" width="362" height="74"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RepositoryLibraryCollectionViewCell" id="Mvg-gW-TT7" customClass="RepositoryLibraryCollectionViewCell" customModule="RxGit" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="0.0" width="362" height="74"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="repo" translatesAutoresizingMaskIntoConstraints="NO" id="zcW-Y3-NeF">
+                                                    <rect key="frame" x="10" y="10" width="17" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfc-9i-53V">
+                                                    <rect key="frame" x="35" y="0.0" width="269" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nX-Mz-VT8">
+                                                    <rect key="frame" x="6" y="36" width="337" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.54148822841305422" green="0.54148822841305422" blue="0.54148822841305422" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PtT-4k-KJz">
+                                                    <rect key="frame" x="7" y="72" width="349" height="2"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="3nX-Mz-VT8" id="Hfa-l5-5Pi"/>
+                                            <outlet property="nameLabel" destination="Qfc-9i-53V" id="5CE-5v-TIb"/>
+                                            <segue destination="abE-Nb-Ljc" kind="show" identifier="viewRepository2" id="XOj-AO-aMN"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="PzU-uT-1js"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="KpS-eS-bA7"/>
+                    <connections>
+                        <outlet property="collectionView" destination="sDf-w6-Xg2" id="4c6-4f-RDj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mf1-tO-jM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-758" y="-1585"/>
         </scene>
         <!--Repository View Controller-->
         <scene sceneID="Mbz-ol-C8J">
@@ -107,13 +200,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAs-P1-Fel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="157" y="-1961"/>
+            <point key="canvasLocation" x="233" y="-1949"/>
         </scene>
         <!--Library-->
         <scene sceneID="Yjg-zb-i2A">
             <objects>
                 <navigationController id="aDI-6f-2wA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Library" id="uPk-X0-sbC"/>
+                    <tabBarItem key="tabBarItem" title="Library" image="file-directory" id="uPk-X0-sbC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1e5-a2-diY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -124,7 +217,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBS-ks-Qj7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1565" y="-1961"/>
+            <point key="canvasLocation" x="-1614" y="-2292"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SlN-Hs-tzM">
@@ -137,6 +230,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="aDI-6f-2wA" kind="relationship" relationship="viewControllers" id="1A5-LT-x79"/>
+                        <segue destination="uK6-Uy-G8L" kind="relationship" relationship="viewControllers" id="fh2-f0-9OU"/>
                         <segue destination="13h-LQ-Lqq" kind="relationship" relationship="viewControllers" id="8Ac-z8-7uU"/>
                     </connections>
                 </tabBarController>
@@ -154,14 +248,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="XYB-4s-oAO"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sign out" id="2zO-lm-agA"/>
+                    <tabBarItem key="tabBarItem" title="Sign out" image="sign-out" id="2zO-lm-agA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5d3-Pu-VbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1552" y="-1224"/>
+            <point key="canvasLocation" x="-2528" y="-862"/>
         </scene>
     </scenes>
     <resources>
+        <image name="file-directory" width="22" height="25"/>
         <image name="repo" width="19" height="25"/>
+        <image name="sign-out" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zNa-To-492"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -23,6 +23,9 @@
 		30CD2D802216B7A800B4B1A8 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CD2D7F2216B7A800B4B1A8 /* Repositories.swift */; };
 		30CD2D822216B7CC00B4B1A8 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CD2D812216B7CC00B4B1A8 /* Repository.swift */; };
 		30CD2D842216B8D500B4B1A8 /* RepositoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CD2D832216B8D500B4B1A8 /* RepositoriesService.swift */; };
+		DE28769A22228E51002CD32A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE28769922228E51002CD32A /* SearchViewController.swift */; };
+		DE28769D2222BA57002CD32A /* RepositorySearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE28769C2222BA57002CD32A /* RepositorySearchService.swift */; };
+		DE28769F2222C317002CD32A /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE28769E2222C317002CD32A /* SearchResult.swift */; };
 		DE56747C21FDD588008BDA4F /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DE56747A21FDD588008BDA4F /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE56747F21FDD5C4008BDA4F /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068421EF795A00F53680 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DE56748121FDD5C8008BDA4F /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 309F068721EF797C00F53680 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -72,6 +75,9 @@
 		30CD2D7F2216B7A800B4B1A8 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
 		30CD2D812216B7CC00B4B1A8 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		30CD2D832216B8D500B4B1A8 /* RepositoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesService.swift; sourceTree = "<group>"; };
+		DE28769922228E51002CD32A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DE28769C2222BA57002CD32A /* RepositorySearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositorySearchService.swift; sourceTree = "<group>"; };
+		DE28769E2222C317002CD32A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		DE56747A21FDD588008BDA4F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		DE90678D2219C56600CC068B /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		DE94E10121F4B83A00251C9D /* RepositoryLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryLibraryViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 				3042C98F21F4B2AF006EBF86 /* RequestFactory.swift */,
 				3042C98D21F4A9F5006EBF86 /* GitRequest.swift */,
 				30459F4A21FB0EE000DB5E18 /* UserTokenManager.swift */,
+				DE28769C2222BA57002CD32A /* RepositorySearchService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -120,6 +127,7 @@
 				3042C99521F8A72E006EBF86 /* User.swift */,
 				30CD2D7F2216B7A800B4B1A8 /* Repositories.swift */,
 				30CD2D812216B7CC00B4B1A8 /* Repository.swift */,
+				DE28769E2222C317002CD32A /* SearchResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,6 +185,7 @@
 				DE94E10121F4B83A00251C9D /* RepositoryLibraryViewController.swift */,
 				DE94E10B21F4BC9700251C9D /* RepositoryLibraryCollectionViewCell.swift */,
 				DE90678D2219C56600CC068B /* RepositoryViewController.swift */,
+				DE28769922228E51002CD32A /* SearchViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +265,7 @@
 			files = (
 				3002319821FD76C400E76956 /* JSONQueries.swift in Sources */,
 				30CD2D842216B8D500B4B1A8 /* RepositoriesService.swift in Sources */,
+				DE28769F2222C317002CD32A /* SearchResult.swift in Sources */,
 				3042C99021F4B2AF006EBF86 /* RequestFactory.swift in Sources */,
 				3002318921FD302A00E76956 /* JSONParser.swift in Sources */,
 				3042C98E21F4A9F5006EBF86 /* GitRequest.swift in Sources */,
@@ -266,6 +276,8 @@
 				DE94E10C21F4BC9700251C9D /* RepositoryLibraryCollectionViewCell.swift in Sources */,
 				307DE19521EC90BF008595E6 /* AppDelegate.swift in Sources */,
 				30CD2D822216B7CC00B4B1A8 /* Repository.swift in Sources */,
+				DE28769D2222BA57002CD32A /* RepositorySearchService.swift in Sources */,
+				DE28769A22228E51002CD32A /* SearchViewController.swift in Sources */,
 				30459F4B21FB0EE000DB5E18 /* UserTokenManager.swift in Sources */,
 				3042C97021F4A5B4006EBF86 /* ServiceFactory.swift in Sources */,
 				3042C99321F8A65F006EBF86 /* LoginService.swift in Sources */,
