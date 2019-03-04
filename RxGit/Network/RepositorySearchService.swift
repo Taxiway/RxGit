@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 
 protocol RepositorySearchService {
-    func run() -> Single<SearchResults>
+    func run(queryString: String?) -> Single<SearchResults>
 }
 
 class RepositorySearchServiceImpl: RepositorySearchService {
@@ -20,21 +20,22 @@ class RepositorySearchServiceImpl: RepositorySearchService {
     var userTokenManager: UserTokenManager
     var queryString: String
     
-    init(requestFactory: RequestFactory, userTokenManager: UserTokenManager, queryString: String?) {
+    init(requestFactory: RequestFactory, userTokenManager: UserTokenManager) {
         self.requestFactory = requestFactory
         self.userTokenManager = userTokenManager
         self.request = requestFactory.newRequest()
         self.bag = DisposeBag()
-        self.queryString = queryString ?? ""
-        setupRequest()
+        self.queryString = ""
+        self.request?.method = .post
     }
     
     func setupRequest() {
-        self.request?.method = .post
         self.request?.queryJSON = ["query": String(format: JSONQueries.RepositorySearch.rawValue, self.queryString)]
     }
     
-    func run() -> Single<SearchResults> {
+    func run(queryString: String?) -> Single<SearchResults> {
+        self.queryString = queryString ?? ""
+        self.setupRequest()
         return Single<SearchResults>.create(subscribe: { single in
             let disposable = Disposables.create()
             guard let request = self.request else {

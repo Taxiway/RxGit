@@ -76,9 +76,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="Qrt-yh-gNm" id="ndu-Vj-Vt8"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -176,9 +173,6 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="9o8-if-YcP" id="NjH-Qd-Yad"/>
-                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,6 +261,6 @@
         <image name="sign-out" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XOj-AO-aMN"/>
+        <segue reference="zNa-To-492"/>
     </inferredMetricsTieBreakers>
 </document>

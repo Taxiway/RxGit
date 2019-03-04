@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class SearchViewController : UIViewController, UICollectionViewDataSource, UISearchBarDelegate {
+class SearchViewController : UIViewController {
     private weak var appController : AppController!
     let serviceFactory = ServiceFactoryImpl.sharedInstance
     let requestFactory = RequestFactoryImpl.sharedInstance
@@ -24,8 +24,21 @@ class SearchViewController : UIViewController, UICollectionViewDataSource, UISea
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = searchBar
-        searchBar.delegate = self
-        collectionView.isPrefetchingEnabled = true
+        repositorySearchService = serviceFactory.newRepositorySearchService(requestFactory: requestFactory, userTokenManager: requestFactory.userTokenManager!)
+        
+        let results = searchBar.rx.text.orEmpty
+            .throttle(0.5, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .flatMapLatest { query in
+                self.repositorySearchService.run(queryString: query)
+                    .asObservable()
+                    .flatMap({Observable.from(optional: $0.repositories)})
+            }
+        
+        results.bind(to: collectionView.rx.items(cellIdentifier: "RepositoryLibraryCollectionViewCell", cellType: RepositoryLibraryCollectionViewCell.self)) { (row, element, cell) in
+            cell.nameLabel.text = element.name
+            cell.descriptionLabel.text = element.description
+            }.disposed(by: bag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,27 +53,4 @@ class SearchViewController : UIViewController, UICollectionViewDataSource, UISea
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchResults?.repositories.count ?? 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RepositoryLibraryCollectionViewCell", for: indexPath) as! RepositoryLibraryCollectionViewCell
-        cell.nameLabel.text = searchResults?.repositories[indexPath.item].nameWithOwner
-        cell.descriptionLabel.text = searchResults?.repositories[indexPath.item].description
-        return cell
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        repositorySearchService = serviceFactory.newRepositorySearchService(requestFactory: requestFactory, userTokenManager: requestFactory.userTokenManager!, queryString: searchBar.text)
-        repositorySearchService.run()
-            .subscribe(onSuccess: { [unowned self] results in
-                print(results)
-                self.searchResults = results
-                self.collectionView.reloadData()
-                }, onError: { error in
-                    print("Error")
-            })
-            .disposed(by: self.bag)
-    }
 }

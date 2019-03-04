@@ -11,7 +11,7 @@ import UIKit
 protocol ServiceFactory {
     func newLoginService(token: String, requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> LoginService
     func newRepositoriesService(requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> RepositoriesService
-    func newRepositorySearchService(requestFactory: RequestFactory, userTokenManager: UserTokenManager, queryString: String?) -> RepositorySearchService
+    func newRepositorySearchService(requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> RepositorySearchService
 }
 
 class ServiceFactoryImpl: ServiceFactory {
@@ -25,7 +25,7 @@ class ServiceFactoryImpl: ServiceFactory {
         return RepositoriesServiceImpl(requestFactory: requestFactory, userTokenManager: userTokenManager)
     }
     
-    func newRepositorySearchService(requestFactory: RequestFactory, userTokenManager: UserTokenManager, queryString: String?) -> RepositorySearchService {
-        return RepositorySearchServiceImpl(requestFactory: requestFactory, userTokenManager: userTokenManager, queryString: queryString)
+    func newRepositorySearchService(requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> RepositorySearchService {
+        return RepositorySearchServiceImpl(requestFactory: requestFactory, userTokenManager: userTokenManager)
     }
 }
