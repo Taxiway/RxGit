@@ -13,6 +13,12 @@ class Repository: Mappable {
     var name: String!
     var description: String!
     var nameWithOwner: String!
+    var languages: Languages!
+
+    convenience init?(json: Data) {
+        guard let jsonString = String(data: json, encoding: .utf8) else { return nil }
+        self.init(JSONString: jsonString)
+    }
 
     required init?(map: Map) {
         
@@ -22,5 +28,12 @@ class Repository: Mappable {
         name <- map["name"]
         nameWithOwner <- map["nameWithOwner"]
         description <- map["description"]
+        languages <- map["languages"]
+        if name == nil {
+            name <- map["data.repository.name"]
+            nameWithOwner <- map["data.repository.nameWithOwner"]
+            description <- map["data.repository.description"]
+            languages <- map["data.repository.languages"]
+        }
     }
 }

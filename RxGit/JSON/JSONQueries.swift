@@ -12,4 +12,5 @@ enum JSONQueries: String {
     case Login = "query { viewer { login } }"
     case Repositories = "query { viewer { repositories(last: 100) { nodes { name description } } } }"
     case RepositorySearch = "query { search(query: \"%@\", type: REPOSITORY, first: 10) { repositoryCount nodes { ... on Repository { name nameWithOwner description primaryLanguage { name } } } } }"
+    case Repository = "query { repository(owner: \"%@\", name: \"%@\") { name nameWithOwner description languages(last: 100) { totalCount totalSize nodes { name color } edges { size } } } }"
 }

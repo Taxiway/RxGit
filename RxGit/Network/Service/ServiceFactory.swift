@@ -12,6 +12,7 @@ protocol ServiceFactory {
     func newLoginService(token: String, requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> LoginService
     func newRepositoriesService(requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> RepositoriesService
     func newRepositorySearchService(requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> RepositorySearchService
+    func newRepositoryService(requestFactory: RequestFactory, userTokenManager: UserTokenManager, owner: String, name: String) -> RepositoryService
 }
 
 class ServiceFactoryImpl: ServiceFactory {
@@ -27,5 +28,9 @@ class ServiceFactoryImpl: ServiceFactory {
     
     func newRepositorySearchService(requestFactory: RequestFactory, userTokenManager: UserTokenManager) -> RepositorySearchService {
         return RepositorySearchServiceImpl(requestFactory: requestFactory, userTokenManager: userTokenManager)
+    }
+
+    func newRepositoryService(requestFactory: RequestFactory, userTokenManager: UserTokenManager, owner: String, name: String) -> RepositoryService {
+        return RepositoryServiceImpl(requestFactory: requestFactory, userTokenManager: userTokenManager, owner: owner, name: name)
     }
 }
