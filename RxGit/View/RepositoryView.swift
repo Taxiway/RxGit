@@ -13,12 +13,14 @@ import RxCocoa
 class LanguagesView: UIView {
     var nameLabels: [UILabel]
     var percentBars: [UIView]
+    var percentLabels: [UILabel]
     var languages: Variable<Languages>
     var bag = DisposeBag()
 
     override init(frame: CGRect) {
         nameLabels = [UILabel]()
         percentBars = [UIView]()
+        percentLabels = [UILabel]()
         languages = Variable(Languages())
         super.init(frame: frame)
         languages
@@ -43,13 +45,38 @@ class LanguagesView: UIView {
         for bar in percentBars {
             bar.removeFromSuperview()
         }
+        for label in percentLabels {
+            label.removeFromSuperview()
+        }
         nameLabels = [UILabel]()
         percentBars = [UIView]()
+        percentLabels = [UILabel]()
+    }
+
+    func createBarView(_ percent: CGFloat) -> UIView {
+        return UIView(frame: CGRect(x: 60, y: 0, width: floor(percent * (self.frame.width - 120)), height: 30))
     }
 
     func createViews(_ languages: Languages) {
-        for _ in languages.languages {
-            
+        var y: CGFloat = 0.0
+        var index = 0
+        for language in languages.languages {
+            let name = UILabel(frame: CGRect(x: 0, y: y, width: 60, height: 30))
+            nameLabels.append(name)
+            name.text = language.name
+            addSubview(name)
+            let p = CGFloat(languages.sizes[index]) / CGFloat(languages.totalSize)
+            let bar = createBarView(p)
+            bar.frame.origin.y = y
+            bar.backgroundColor = UIColor.colorWithHexString(hex: language.color)
+            percentBars.append(bar)
+            addSubview(bar)
+            let percent = UILabel(frame: CGRect(x: self.frame.width - 60, y: y, width: 60, height: 30))
+            percentBars.append(percent)
+            percent.text = String(format: "%.2lf%%", p * 100.0)
+            addSubview(percent)
+            y += 40.0
+            index += 1
         }
     }
 
@@ -124,5 +151,30 @@ class RepositoryView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension UIColor {
+    class func colorWithHexString(hex:String) -> UIColor {
+        var cString = hex.trimmingCharacters(in:CharacterSet.whitespacesAndNewlines).uppercased()
+        if (cString.hasPrefix("#")) {
+            let index = cString.index(cString.startIndex, offsetBy:1)
+            cString = cString.substring(from: index)
+        }
+        if (cString.characters.count != 6) {
+            return UIColor.red
+        }
+        let rIndex = cString.index(cString.startIndex, offsetBy: 2)
+        let rString = cString.substring(to: rIndex)
+        let otherString = cString.substring(from: rIndex)
+        let gIndex = otherString.index(otherString.startIndex, offsetBy: 2)
+        let gString = otherString.substring(to: gIndex)
+        let bIndex = cString.index(cString.endIndex, offsetBy: -2)
+        let bString = cString.substring(from: bIndex)
+        var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0;
+        Scanner(string: rString).scanHexInt32(&r)
+        Scanner(string: gString).scanHexInt32(&g)
+        Scanner(string: bString).scanHexInt32(&b)
+        return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
     }
 }
