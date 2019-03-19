@@ -57,6 +57,14 @@ class LanguagesView: UIView {
         return UIView(frame: CGRect(x: 60, y: 0, width: floor(percent * (self.frame.width - 120)), height: 30))
     }
 
+    func animateBarView(_ barView: UIView) {
+        let width = barView.frame.size.width
+        barView.frame.size.width = 0
+        UIView.animate(withDuration: 1.0, animations: {
+            barView.frame.size.width = width
+        })
+    }
+
     func createViews(_ languages: Languages) {
         var y: CGFloat = 0.0
         var index = 0
@@ -69,6 +77,7 @@ class LanguagesView: UIView {
             let bar = createBarView(p)
             bar.frame.origin.y = y
             bar.backgroundColor = UIColor.colorWithHexString(hex: language.color)
+            animateBarView(bar)
             percentBars.append(bar)
             addSubview(bar)
             let percent = UILabel(frame: CGRect(x: self.frame.width - 60, y: y, width: 60, height: 30))
