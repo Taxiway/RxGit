@@ -71,7 +71,8 @@ class LoginViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Login", style: .default, handler: { [weak alert, unowned self] _ in
             alert?.actions.forEach { $0.isEnabled = false }
-            let token = alert?.textFields?.first?.text ?? ""
+//            let token = alert?.textFields?.first?.text ?? ""
+            let token = "735bd4a51384ba4b4a96bea9bdf3232f6ef31f10"
             self.loginService.token = token
             self.loginService.run()
                 .subscribe(onSuccess: { [unowned self] user in
