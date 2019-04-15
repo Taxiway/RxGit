@@ -246,7 +246,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kD-K2-XwI">
-                                <rect key="frame" x="0.0" y="323" width="453" height="685"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="685"/>
                                 <connections>
                                     <segue destination="a0b-oX-bE5" kind="embed" id="7B6-9t-HIf"/>
                                 </connections>
@@ -326,46 +326,51 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vmG-P3-K8y">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ynm-dT-BFe">
-                                    <size key="itemSize" width="414" height="40"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Ynm-dT-BFe">
+                                    <size key="itemSize" width="414" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RepositoryCodePathCell" id="mIK-mg-5s3" customClass="RepositoryCodePathCell" customModule="RxGit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-Rc-BmX">
-                                                    <rect key="frame" x="20" y="-1" width="314" height="40"/>
+                                                    <rect key="frame" x="60" y="-1" width="274" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="ppa-HK-4aq"/>
+                                                        <constraint firstAttribute="height" constant="50" id="ppa-HK-4aq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENJ-qx-Kkh">
-                                                    <rect key="frame" x="354" y="-1" width="40" height="40"/>
+                                                    <rect key="frame" x="354" y="-1" width="40" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="QvL-zo-ydv"/>
-                                                        <constraint firstAttribute="height" constant="40" id="rCD-0P-gp1"/>
+                                                        <constraint firstAttribute="height" constant="50" id="rCD-0P-gp1"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS-Italic" family="Trebuchet MS" pointSize="30"/>
                                                     <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lmm-wX-kI8">
-                                                    <rect key="frame" x="20" y="39" width="374" height="1"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="20" y="49" width="374" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="bhc-H8-wIV"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZxU-b8-NjD">
+                                                    <rect key="frame" x="28" y="15" width="16" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -374,13 +379,15 @@
                                             <constraint firstAttribute="bottom" secondItem="lmm-wX-kI8" secondAttribute="bottom" id="R1r-WH-fcD"/>
                                             <constraint firstItem="lmm-wX-kI8" firstAttribute="leading" secondItem="mIK-mg-5s3" secondAttribute="leading" constant="20" id="Sri-Yu-YZh"/>
                                             <constraint firstItem="lmm-wX-kI8" firstAttribute="top" secondItem="AHr-Rc-BmX" secondAttribute="bottom" id="csm-CL-0qh"/>
-                                            <constraint firstItem="AHr-Rc-BmX" firstAttribute="leading" secondItem="mIK-mg-5s3" secondAttribute="leading" constant="20" id="f4J-27-gwp"/>
+                                            <constraint firstItem="AHr-Rc-BmX" firstAttribute="leading" secondItem="mIK-mg-5s3" secondAttribute="leading" constant="60" id="f4J-27-gwp"/>
                                             <constraint firstItem="lmm-wX-kI8" firstAttribute="top" secondItem="ENJ-qx-Kkh" secondAttribute="bottom" id="gja-3I-8sK"/>
                                             <constraint firstAttribute="trailing" secondItem="ENJ-qx-Kkh" secondAttribute="trailing" constant="20" id="xIq-RC-scc"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="icon" destination="ZxU-b8-NjD" id="FFd-wB-eXM"/>
                                             <outlet property="nextLevel" destination="ENJ-qx-Kkh" id="lan-gq-ate"/>
                                             <outlet property="pathLabel" destination="AHr-Rc-BmX" id="0rV-ML-ZDN"/>
+                                            <segue destination="1rW-NT-AQV" kind="show" identifier="codeFile" id="idq-aJ-QU2"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

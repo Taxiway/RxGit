@@ -20,7 +20,7 @@ class RepositoryCodeViewController: UIViewController {
     let requestFactory = RequestFactoryImpl.sharedInstance
     var repositoryFilesService: RepositoriesFilesService!
     var repository: Repository?
-    private var queryString: String = ""
+    var queryString: String = ""
     var bag = DisposeBag()
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -31,14 +31,34 @@ class RepositoryCodeViewController: UIViewController {
             .asObservable()
             .flatMap({Observable.from(optional: $0.files)})
             .bind(to: collectionView.rx.items(cellIdentifier: "RepositoryCodePathCell", cellType: RepositoryCodePathCell.self)) { (row, element, cell) in
-                cell.pathLabel.text = element.name
-                cell.nextLevel.isHidden = !(element.type == "tree" && !element.name.contains("."))
+                self.setCell(cell, withFile: element)
             }
             .disposed(by: bag)
-        
-        // collectionView itemSelected -> update queryString (subscribe)
     }
     
+    // trying to use storyBoard's segue in this project, sadly this way we can not use customize init for the controller...
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "codeFile" {
+            let cell = sender as! RepositoryCodePathCell
+            let repositoryVC = segue.destination as! RepositoryCodeViewController
+            repositoryVC.repository = repository
+            if let name = cell.pathLabel.text {
+                repositoryVC.queryString = queryString + name + "/"
+            }
+        }
+    }
+    
+    func setCell(_ cell: RepositoryCodePathCell, withFile file: File) {
+        cell.pathLabel.text = file.name
+        cell.icon.contentMode = .scaleAspectFit
+        if file.type == "tree" && !file.name.contains(".") {
+            cell.icon.image = UIImage.init(named: "file-directory")
+            cell.nextLevel.isHidden = false
+        } else {
+            cell.icon.image = UIImage.init(named: "file-text")
+            cell.nextLevel.isHidden = true
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -11,4 +11,5 @@ import UIKit
 class RepositoryCodePathCell: UICollectionViewCell {
     @IBOutlet weak var pathLabel: UILabel!
     @IBOutlet weak var nextLevel: UILabel!
+    @IBOutlet weak var icon: UIImageView!
 }
