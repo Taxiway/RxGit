@@ -10,12 +10,9 @@ import UIKit
 import RxSwift
 
 class SearchViewController : UIViewController {
-    private weak var appController : AppController!
     let serviceFactory = ServiceFactoryImpl.sharedInstance
     let requestFactory = RequestFactoryImpl.sharedInstance
     var repositorySearchService: RepositorySearchService!
-    private var searchResults: SearchResults?
-    private var user : User?
     var bag = DisposeBag()
     private let searchBar = UISearchBar()
     
@@ -36,8 +33,7 @@ class SearchViewController : UIViewController {
             }
         
         results.bind(to: collectionView.rx.items(cellIdentifier: "RepositoryLibraryCollectionViewCell", cellType: RepositoryLibraryCollectionViewCell.self)) { (row, element, cell) in
-            cell.nameLabel.text = element.name
-            cell.descriptionLabel.text = element.description
+            cell.setRepository(repo: element)
             }.disposed(by: bag)
     }
     
@@ -48,7 +44,8 @@ class SearchViewController : UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewRepository2" {
             let cell = sender as! RepositoryLibraryCollectionViewCell
-            let repositoryVC = segue.destination
+            let repositoryVC = segue.destination as! RepositoryViewController
+            repositoryVC.repository = cell.repository
             repositoryVC.navigationItem.title = cell.nameLabel.text
         }
     }

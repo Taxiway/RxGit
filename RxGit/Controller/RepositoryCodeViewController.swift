@@ -16,24 +16,27 @@ struct codePath {
 }
 
 class RepositoryCodeViewController: UIViewController {
-    
-    @IBOutlet weak var collectionView: UICollectionView!
-    
+    let serviceFactory = ServiceFactoryImpl.sharedInstance
+    let requestFactory = RequestFactoryImpl.sharedInstance
+    var repositoryFilesService: RepositoriesFilesService!
+    var repository: Repository?
+    private var queryString: String = ""
     var bag = DisposeBag()
-    let mockData = Observable.just(
-        (0..<20).map {
-            codePath(hasNextLevel: $0<=10, path: "Path" + "\($0)") }
-    )
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mockData.bind(to: collectionView.rx.items(cellIdentifier: "RepositoryCodePathCell",
-                                                  cellType: RepositoryCodePathCell.self)) { (row, element, cell) in
-            cell.pathLabel.text = element.path
-            if !element.hasNextLevel {
-                cell.nextLevel.isHidden = true
+        repositoryFilesService = serviceFactory.newRepositoryFilesService(requestFactory: requestFactory, userTokenManager: requestFactory.userTokenManager!, owner: repository!.owner, name: repository!.name)
+        _ = repositoryFilesService.run(queryString: queryString)
+            .asObservable()
+            .flatMap({Observable.from(optional: $0.files)})
+            .bind(to: collectionView.rx.items(cellIdentifier: "RepositoryCodePathCell", cellType: RepositoryCodePathCell.self)) { (row, element, cell) in
+                cell.pathLabel.text = element.name
+                cell.nextLevel.isHidden = !(element.type == "tree" && !element.name.contains("."))
             }
-        }.disposed(by: bag)
+            .disposed(by: bag)
+        
+        // collectionView itemSelected -> update queryString (subscribe)
     }
     
 

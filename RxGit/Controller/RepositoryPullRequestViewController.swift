@@ -9,6 +9,7 @@
 import UIKit
 
 class RepositoryPullRequestViewController: UIViewController {
+    var repository: Repository?
 
     override func viewDidLoad() {
         super.viewDidLoad()

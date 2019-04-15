@@ -14,6 +14,9 @@ class Repository: Mappable {
     var description: String!
     var nameWithOwner: String!
     var languages: Languages!
+    var owner: String {
+        return nameWithOwner.components(separatedBy: "/")[0]
+    }
 
     convenience init?(json: Data) {
         guard let jsonString = String(data: json, encoding: .utf8) else { return nil }

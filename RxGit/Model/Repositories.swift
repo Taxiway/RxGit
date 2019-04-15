@@ -23,5 +23,8 @@ class Repositories: Mappable {
     
     func mapping(map: Map) {
         repositories <- map["data.viewer.repositories.nodes"]
+        if repositories == nil {
+            repositories <- map["data.search.nodes"]
+        }
     }
 }

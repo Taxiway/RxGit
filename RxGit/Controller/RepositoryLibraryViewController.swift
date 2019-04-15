@@ -26,16 +26,17 @@ class RepositoryLibraryViewController: UIViewController {
             .asObservable()
             .flatMap({Observable.from(optional: $0.repositories)})
             .bind(to: collectionView.rx.items(cellIdentifier: "RepositoryLibraryCollectionViewCell", cellType: RepositoryLibraryCollectionViewCell.self)) { (row, element, cell) in
-                cell.nameLabel.text = element.name
-                cell.descriptionLabel.text = element.description
+                cell.setRepository(repo: element)
             }
             .disposed(by: bag)
     }
     
+    // trying to use storyBoard's segue in this project, sadly this way we can not use customize init for the controller...
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "viewRepository1" {
             let cell = sender as! RepositoryLibraryCollectionViewCell
-            let repositoryVC = segue.destination
+            let repositoryVC = segue.destination as! RepositoryViewController
+            repositoryVC.repository = cell.repository
             repositoryVC.navigationItem.title = cell.nameLabel.text
         }
     }

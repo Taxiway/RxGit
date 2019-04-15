@@ -14,6 +14,7 @@ class RepositoryViewController: UIViewController {
     var pullRequestController: RepositoryPullRequestViewController!
     var codeController: RepositoryCodeViewController!
     var viewControllers = [UIViewController]()
+    var repository: Repository?
     
     @IBOutlet weak var sliderView: UIView!
     var sliderImageView: UIImageView!
@@ -36,9 +37,7 @@ class RepositoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         pageViewController = (self.children.first as! UIPageViewController)
-        overviewController = (storyboard?.instantiateViewController(withIdentifier: "OverviewControllerID") as! RepositoryOverviewController)
-        pullRequestController = (storyboard?.instantiateViewController(withIdentifier: "PullRequestControllerID") as! RepositoryPullRequestViewController)
-        codeController = (storyboard?.instantiateViewController(withIdentifier: "CodeControllerID") as! RepositoryCodeViewController)
+        setSubController()
         pageViewController.dataSource = self
         pageViewController.setViewControllers([overviewController], direction: UIPageViewController.NavigationDirection.forward, animated: true, completion: nil)
         
@@ -51,6 +50,15 @@ class RepositoryViewController: UIViewController {
         viewControllers.append(codeController)
         
         NotificationCenter.default.addObserver(self, selector: #selector(RepositoryViewController.currentPageChanged(notification:)), name: Notification.Name(rawValue: "currentPageChanged"), object: nil)
+    }
+    
+    func setSubController() {
+        overviewController = (storyboard?.instantiateViewController(withIdentifier: "OverviewControllerID") as! RepositoryOverviewController)
+        pullRequestController = (storyboard?.instantiateViewController(withIdentifier: "PullRequestControllerID") as! RepositoryPullRequestViewController)
+        codeController = (storyboard?.instantiateViewController(withIdentifier: "CodeControllerID") as! RepositoryCodeViewController)
+        overviewController.repository = repository
+        pullRequestController.repository = repository
+        codeController.repository = repository
     }
     
     @IBAction func changePage(_ sender: UIButton) {
