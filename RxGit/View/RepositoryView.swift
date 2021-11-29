@@ -14,14 +14,14 @@ class LanguagesView: UIView {
     var nameLabels: [UILabel]
     var percentBars: [UIView]
     var percentLabels: [UILabel]
-    var languages: Variable<Languages>
+    var languages: BehaviorRelay<Languages>
     var bag = DisposeBag()
 
     override init(frame: CGRect) {
         nameLabels = [UILabel]()
         percentBars = [UIView]()
         percentLabels = [UILabel]()
-        languages = Variable(Languages())
+        languages = BehaviorRelay(value: Languages())
         super.init(frame: frame)
         languages
             .asObservable()
@@ -116,7 +116,7 @@ class RepositoryView: UIView {
             .disposed(by: bag)
         dataModel.map { $0.languages }
             .subscribe(onNext: { [weak self] languages in
-                self?.languagesView.languages.value = languages
+                self?.languagesView.languages.accept(languages)
             })
             .disposed(by: bag)
     }

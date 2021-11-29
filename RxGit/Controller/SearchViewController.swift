@@ -24,7 +24,7 @@ class SearchViewController : UIViewController {
         repositorySearchService = serviceFactory.newRepositorySearchService(requestFactory: requestFactory, userTokenManager: requestFactory.userTokenManager!)
         
         let results = searchBar.rx.text.orEmpty
-            .throttle(0.5, scheduler: MainScheduler.instance)
+            .throttle(DispatchTimeInterval.microseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .flatMapLatest { query in
                 self.repositorySearchService.run(queryString: query)

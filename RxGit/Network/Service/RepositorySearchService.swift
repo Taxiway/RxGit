@@ -39,18 +39,18 @@ class RepositorySearchServiceImpl: RepositorySearchService {
         return Single<Repositories>.create(subscribe: { single in
             let disposable = Disposables.create()
             guard let request = self.request else {
-                single(.error(NSError()))
+//                single(.error(NSError()))
                 return disposable
             }
             request.start()
                 .subscribe(onSuccess: { json in
                     guard let repositories = Repositories.init(json: json) else {
-                        single(.error(NSError()))
+//                        single(.error(NSError()))
                         return
                     }
                     single(.success(repositories))
                 }, onError: { error in
-                    single(.error(error))
+//                    single(.error(error))
                 })
                 .disposed(by: self.bag)
             return disposable

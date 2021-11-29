@@ -33,7 +33,7 @@ class GitRequestImpl: GitRequest {
             AF.request(self.baseURL, method: self.method, parameters: self.queryJSON, encoding: JSONEncoding.default, headers: self.headers)
                 .responseJSON(completionHandler: { response in
                     guard let data = response.data else {
-                        single(.error(NSError()))
+//                        single(.error(NSError()))
                         return
                     }
                     single(.success(data))

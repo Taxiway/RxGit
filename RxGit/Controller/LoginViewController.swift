@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     let userTokenManager = UserTokenManagerImpl()
     var bag = DisposeBag()
     var loginService: LoginService!
-    var state : Variable<State> = Variable(.standby)
+    var state : BehaviorRelay<State> = BehaviorRelay<State>(value: .standby)
     
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var tokenButton: UIButton!
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onSignInButton(_ sender: Any) {
-        state.value = .fetching
+        state.accept(.fetching)
     }
     
     @IBAction func onTokenButton(_ sender: Any) {
@@ -77,15 +77,15 @@ class LoginViewController: UIViewController {
             self.loginService.run()
                 .subscribe(onSuccess: { [unowned self] user in
                         print(user)
-                        self.state.value = .standby
+                    self.state.accept(.standby)
                         self.appController.didLoginWith(user: user)
                     }, onError: { error in
                         print("Error")
-                        self.state.value = .standby
+                        self.state.accept(.standby)
                         self.handleError()
                 })
                 .disposed(by: self.bag)
-            self.state.value = .fetching
+            self.state.accept(.fetching)
         }))
         
         present(alert, animated: !UIAccessibility.isReduceMotionEnabled)

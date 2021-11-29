@@ -48,19 +48,19 @@ class LoginServiceImpl: LoginService {
         return Single<User>.create(subscribe: { single in
             let disposable = Disposables.create()
             guard let request = self.request else {
-                single(.error(NSError()))
+//                single(.error(NSError()))
                 return disposable
             }
             request.start()
                 .subscribe(onSuccess: { json in
                     guard let user = User.init(json: json), user.name != nil else {
-                        single(.error(NSError()))
+//                        single(.error(NSError()))
                         return
                     }
                     user.token = self.token
                     single(.success(user))
                 }, onError: { error in
-                    single(.error(error))
+//                    single(.error(error))
                 })
                 .disposed(by: self.bag)
             return disposable
